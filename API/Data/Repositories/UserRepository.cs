@@ -28,7 +28,7 @@ namespace API.Data.Repositories
         public async Task<MemberDto> GetMembersAsync(string username)
         {
             return await _context.Users
-                .Where(x => x.UserName == username)
+                .Where(x => x.UserName.ToLower() == username)
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
                 .SingleOrDefaultAsync();
         }
