@@ -1,8 +1,10 @@
-{{ title }}
+<app-nav></app-nav>
 
-<ul>
-    <li *ngFor="let user of users">
-        <p class="text-danger">{{ user.id }} - {{ user.userName }}</p>
-        
-    </li>
-</ul>
+<div class="container" style="margin-top: 100px;">
+    <ul>
+        <li *ngFor="let user of users">
+            <p class="text-danger">{{ user.id }} - {{ user.userName }}</p>
+        </li>
+    </ul>
+</div>
+
