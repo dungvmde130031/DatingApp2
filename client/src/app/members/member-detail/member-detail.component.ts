@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-// import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
 import {NgxGalleryImage} from '@kolkov/ngx-gallery';
 import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
@@ -32,24 +31,7 @@ export class MemberDetailComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide,
         preview: false
       }
-      // max-width 800
-      // {
-      //   breakpoint: 800,
-      //   width: '100%',
-      //   height: '600px',
-      //   imagePercent: 80,
-      //   thumbnailsPercent: 20,
-      //   thumbnailsMargin: 20,
-      //   thumbnailMargin: 20
-      // },
-      // // max-width 400
-      // {
-      //   breakpoint: 400,
-      //   preview: false
-      // }
     ];
-
-    
   }
 
   getImages() {
@@ -62,7 +44,6 @@ export class MemberDetailComponent implements OnInit {
         big: photo.url,
       })
     }
-
     return imageUrls;
   }
 
@@ -76,6 +57,4 @@ export class MemberDetailComponent implements OnInit {
       }
     })
   }
-
-
 }
