@@ -31,7 +31,7 @@ namespace API.Data.Repositories
             return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
         }
 
-        public async Task<MemberDto> GetMembersAsync(string username)
+        public async Task<MemberDto> GetMemberAsync(string username)
         {
             return await _context.Users
                 .Where(x => x.UserName.ToLower() == username)
@@ -46,9 +46,30 @@ namespace API.Data.Repositories
 
         public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
-            return await _context.Users
+            // return await _context.Users
+            //     .Include(p => p.Photos)
+            //     .SingleOrDefaultAsync(x => x.UserName == username);
+
+            var user = await _context.Users
                 .Include(p => p.Photos)
                 .SingleOrDefaultAsync(x => x.UserName == username);
+
+            if (user != null)
+            {
+                // Separate the main photo from the rest
+                var mainPhoto = user.Photos.FirstOrDefault(p => p.IsMain);
+                var remainingPhotos = user.Photos.OrderBy(p => p.Id).Where(p => !p.IsMain).ToList();
+
+                // Combine the main photo and the remaining photos in the desired order
+                user.Photos = new List<Photo>();
+                if (mainPhoto != null)
+                {
+                    user.Photos.Add(mainPhoto);
+                }
+                user.Photos.AddRange(remainingPhotos);
+            }
+
+            return user;
         }
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()

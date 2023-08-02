@@ -41,7 +41,7 @@ namespace API.Controllers
             // Convert the username to lowercase to make it case-insensitive
             string lowercaseUsername = username.ToLower();
 
-            return await _userRepository.GetMembersAsync(lowercaseUsername);
+            return await _userRepository.GetMemberAsync(lowercaseUsername);
         }
 
         // UpdateUser method
