@@ -6,16 +6,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FileUploadModule } from 'ng2-file-upload';
-import { FileSelectDirective } from 'ng2-file-upload';
+// import { FileSelectDirective } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 
 @NgModule({
   declarations: [],
-  providers: [
-    FileSelectDirective
-  ],
+  providers: [],
   imports: [
     CommonModule,
     BsDropdownModule.forRoot(),
