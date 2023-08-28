@@ -11,7 +11,7 @@ namespace API.Controllers
         private readonly DataContext _context;
         public BuggyController(DataContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         [Authorize]
