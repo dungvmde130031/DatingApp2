@@ -34,6 +34,7 @@ import { PhotoManagementComponent } from './admin/photo-management/photo-managem
 import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { customRouteReuseStrategy } from './_services/customRouteReuseStrategy';
+import { ConfirmDialogComponent } from './_models/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { customRouteReuseStrategy } from './_services/customRouteReuseStrategy';
     UserManagementComponent,
     PhotoManagementComponent,
     RolesModalComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserAnimationsModule,
