@@ -17,7 +17,6 @@ export class MemberListComponent implements OnInit {
   members: Member[] = [];
   pagination: Pagination | undefined;
   userParams: UserParams | undefined;
-  user: User | undefined;
   genderList = [{value: 'male', display: 'Male'}, {value: 'female', display: 'Female'}];
 
   constructor(private membersService: MembersService) {
@@ -29,10 +28,8 @@ export class MemberListComponent implements OnInit {
   }
 
   resetFilters() {
-    if (this.user) {
-      this.userParams = this.membersService.resetUserParams();
-      this.loadMembers();
-    }
+    this.userParams = this.membersService.resetUserParams();
+    this.loadMembers();
   }
 
   loadMembers() {
